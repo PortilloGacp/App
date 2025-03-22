@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Main.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+.s1 { color: #7a7e85;}
+.s2 { color: #cf8e6d;}
+.s3 { color: #bcbec4;}
+.s4 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Main.kt</font>
+</center></td></tr></table>
+<pre>
+<span class="s1">//Criação da API  INDEED</span>
+<span class="s1">//A API é apenas o exemplo de como funcionario</span>
+
+<span class="s2">fun </span><span class="s0">main</span><span class="s3">(</span><span class="s0">args: Array</span><span class="s3">&lt;</span><span class="s0">String</span><span class="s3">&gt;) {</span>
+
+    <span class="s1">//Candidato busca a vaga por essas palavras chaves:</span>
+    <span class="s1">//Criação de classes,</span>
+    <span class="s1">//titulo - representa o nome do trabalho</span>
+    <span class="s1">//empresa - nome da empresa</span>
+    <span class="s1">//local - localização do trabalho</span>
+    <span class="s1">//url - o link da vaga no indeed</span>
+
+    <span class="s0">data </span><span class="s2">class </span><span class="s0">emprego</span><span class="s3">(</span>
+        <span class="s2">val </span><span class="s0">titulo: String</span><span class="s3">,</span>
+        <span class="s2">val </span><span class="s0">empresa: String</span><span class="s3">,</span>
+        <span class="s2">val </span><span class="s0">local: String</span><span class="s3">,</span>
+        <span class="s2">val </span><span class="s0">url: String</span>
+    <span class="s3">)</span>
+
+    <span class="s1">//A API retorna o conteudo de acordo com a palavra chave</span>
+    <span class="s2">fun </span><span class="s0">fetchJobsFromIndeedAPI</span><span class="s3">()</span><span class="s0">: List</span><span class="s3">&lt;</span><span class="s0">emprego</span><span class="s3">&gt; {</span>
+        <span class="s2">return </span><span class="s0">listOf</span><span class="s3">(</span>
+            <span class="s0">emprego</span><span class="s3">(</span>
+                <span class="s0">titulo </span><span class="s3">= </span><span class="s4">&quot;Desenvolvedor Android&quot;</span><span class="s3">,</span>
+                <span class="s0">empresa </span><span class="s3">= </span><span class="s4">&quot;Empresa A&quot;</span><span class="s3">,</span>
+                <span class="s0">local </span><span class="s3">= </span><span class="s4">&quot;São Paulo, SP&quot;</span><span class="s3">,</span>
+                <span class="s0">url </span><span class="s3">= </span><span class="s4">&quot;https://www.indeed.com/job/12345&quot;</span>
+            <span class="s3">),</span>
+            <span class="s0">emprego</span><span class="s3">(</span>
+                <span class="s0">titulo </span><span class="s3">= </span><span class="s4">&quot;Analista de Dados&quot;</span><span class="s3">,</span>
+                <span class="s0">empresa </span><span class="s3">= </span><span class="s4">&quot;Empresa B&quot;</span><span class="s3">,</span>
+                <span class="s0">local </span><span class="s3">= </span><span class="s4">&quot;Remoto&quot;</span><span class="s3">,</span>
+                <span class="s0">url </span><span class="s3">= </span><span class="s4">&quot;https://www.indeed.com/job/67890&quot;</span>
+            <span class="s3">),</span>
+            <span class="s0">emprego</span><span class="s3">(</span>
+                <span class="s0">titulo </span><span class="s3">= </span><span class="s4">&quot;Designer UX/UI&quot;</span><span class="s3">,</span>
+                <span class="s0">empresa </span><span class="s3">= </span><span class="s4">&quot;Empresa C&quot;</span><span class="s3">,</span>
+                <span class="s0">local </span><span class="s3">= </span><span class="s4">&quot;Rio de Janeiro, RJ&quot;</span><span class="s3">,</span>
+                <span class="s0">url </span><span class="s3">= </span><span class="s4">&quot;https://www.indeed.com/job/54321&quot;</span>
+            <span class="s3">)</span>
+        <span class="s3">)</span>
+    <span class="s3">}</span>
+
+    <span class="s1">// A função simula a API e retonar os dados no console</span>
+    <span class="s2">fun </span><span class="s0">main</span><span class="s3">() {</span>
+        <span class="s2">val </span><span class="s0">emprego </span><span class="s3">= </span><span class="s0">fetchJobsFromIndeedAPI</span><span class="s3">()</span>
+        <span class="s0">println</span><span class="s3">(</span><span class="s4">&quot;Vagas de Emprego:&quot;</span><span class="s3">)</span>
+        <span class="s0">emprego</span><span class="s3">.</span><span class="s0">forEach </span><span class="s3">{ </span><span class="s0">emprego </span><span class="s3">-&gt;</span>
+            <span class="s0">println</span><span class="s3">(</span><span class="s4">&quot;Título: </span><span class="s2">${</span><span class="s0">emprego</span><span class="s3">.</span><span class="s0">titulo</span><span class="s2">}</span><span class="s4">&quot;</span><span class="s3">)</span>
+            <span class="s0">println</span><span class="s3">(</span><span class="s4">&quot;Empresa: </span><span class="s2">${</span><span class="s0">emprego</span><span class="s3">.</span><span class="s0">empresa</span><span class="s2">}</span><span class="s4">&quot;</span><span class="s3">)</span>
+            <span class="s0">println</span><span class="s3">(</span><span class="s4">&quot;Localização: </span><span class="s2">${</span><span class="s0">emprego</span><span class="s3">.</span><span class="s0">local</span><span class="s2">}</span><span class="s4">&quot;</span><span class="s3">)</span>
+            <span class="s0">println</span><span class="s3">(</span><span class="s4">&quot;URL: </span><span class="s2">${</span><span class="s0">emprego</span><span class="s3">.</span><span class="s0">url</span><span class="s2">}</span><span class="s4">&quot;</span><span class="s3">)</span>
+            <span class="s0">println</span><span class="s3">(</span><span class="s4">&quot;-----------------------------&quot;</span><span class="s3">)</span>
+        <span class="s3">}</span>
+    <span class="s3">}</span>
+
+<span class="s3">}</span>
+</pre>
+</body>
+</html>
